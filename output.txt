@@ -1,2 +1,2 @@
-Hello, World!
-You entered: 14
+String input: hellooo
+Full line input: hello world hello world
