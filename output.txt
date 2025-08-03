@@ -1,8 +1,4 @@
-First element: 10
-Second element: 0
-First Element 1
-Second Element 2
-Last Element 2
-1 2 3 4 5 1 2 
-1 2 3 4 5 1 2 
-1 2 3 4 5 1 2 
+Front element: 1
+Front element after pop: 2
+0
+2

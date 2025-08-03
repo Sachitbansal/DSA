@@ -48,6 +48,7 @@ int main() {
     v.erase(v.begin(), v.begin() + 2); // erasing first two elements
 
     // using insert function
+    // insert in vector is costly as it requires shifting elements
     v.insert(v.begin(), 1); // inserting 1 at the beginning
     v.insert(v.end(), 2); // inserting 2 at the end
 
