@@ -1,4 +1,3 @@
-Front element: 1
-Front element after pop: 2
+1235
+1234
 0
-2
