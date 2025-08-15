@@ -1,6 +1,27 @@
+swappinggg 6 2
+swapping 6 4
+2
+4
+6
+5
+7
 9
-13
-20
-24
-46
-52
+finihsihnf
+swapping 9 6
+5
+6
+7
+9
+finihsihnf
+swapping 9 7
+9
+7
+finihsihnf
+2
+4
+5
+6
+9
+7
+1
+3
