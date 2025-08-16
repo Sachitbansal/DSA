@@ -7,10 +7,19 @@ int main() {
     cin >> t;
 
     for (int i = 0; i < t; i++) {
-        int num;
-        cin >> num;
-        if (num % 3 == 0) cout << "Second\n";
-        else cout << "First\n";
+        int n;
+        cin >> n;
+
+        int arr[n];
+        bool vertict = true;
+        for (int j = 0; j < n; j++) {
+            cin >> arr[j];
+            if (arr[0] > arr[j]) {
+                vertict = false;
+            }
+        }
+        if (vertict) cout << "Yes" << endl;
+        else cout << "NO" << endl;
     }   
     return 0;
 }
