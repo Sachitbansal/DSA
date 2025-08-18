@@ -13,38 +13,30 @@ int main() {
 
         for (int j = 0; j <n; j++) cin >> arr[j];
 
-        vector<vector<int>> temp;
-
-        for (int j = 0; j < n-1; j++) {
-
-            vector<int> neww;
-
-            for (int k = j+1; k < n; k++) {
-                neww.push_back(arr[j] + arr[k]);
-            }
-
-            temp.push_back(neww);
-        }
-        
-
-        set<int> common(temp[0].begin(), temp[0].end());
-
-        for (size_t k = 1; k < temp.size(); k++) {
-            set<int> current(temp[k].begin(), temp[k].end());
-            set<int> intersection;
-
-            for (int num : common) {
-                if (current.count(num)) {
-                    intersection.insert(num);
-                }
-            }
-            common = move(intersection);
-
-            if (common.empty()) break; 
+    //   there can only be 2 numbers else condition will not stisfy
+        set<int> elements(arr, arr + n);
+        bool possible = true;
+        if (elements.size() > 2) {
+            possible = false;
         }
 
-        if (common.empty()) {cout << "No" << endl;}
-        else cout << "Yes" << endl;
+        int count1 = 0;
+        int count2 = 0;
+
+        for (auto j: arr) {
+            if (j == *(elements.begin())) count1++;
+            else count2++;
+        }
+
+
+        if (count2 == 0) { }
+        else if ((count1 - count2) > 1 || (count1 - count2) < -1) { possible = false; }
+
+
+
+        if (possible) cout << "Yes\n";
+        else cout << "No\n"; 
+      
 
     }   
     return 0;
