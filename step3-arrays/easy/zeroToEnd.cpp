@@ -9,7 +9,9 @@ int main() {
     for (int i = 0; i < p; i++) {
         if (arr[i] == 0) {
             while(arr[p]==0) p--;
-            swap(arr[i],arr[p]);
+            for (int j = i; j<7;j++) {
+                swap(arr[j], arr[j+1]);
+            }
         }
     }
     
