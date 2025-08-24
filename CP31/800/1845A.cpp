@@ -1,64 +1,65 @@
 #include <bits/stdc++.h>
 using namespace std;
-edwDWEAD
-int main() {
+
+int main()
+{
 
     int t;
     cin >> t;
 
-    for (int i = 0; i < t; i++) {
-        
+    for (int i = 0; i < t; i++)
+    {
+
+        int n, k, x;
+        cin >> n;
+        cin >> k;
+        cin >> x;
+
+        int total = 0;
         vector<int> arr;
-
-        int n;
-        int k;
-        int x;
-        cin >> n >> k >> x;
-
-        int count = 0;
-        while(count<n ) {
-            if (k==x) {
-                count +=k-1;
-                arr.push_back(k-1);
-            } else {
-                count +=k;
-                arr.push_back(k);
+        
+        if (k>=1 && x!=1) {
+            while(total != n) {
+                arr.push_back(1);
+                total++;
             }
-        }
-        if (k == x) count-=k;
-        else count -= k-1;
-        arr.pop_back();
-
-        while(count != n){
-            if (n-count != x) {
-                arr.push_back(n-count);
-                count += n - count;
-            } else {
-                int addi = n-count-1;
-                while (count<n && addi!=0) {
-                    if (n - count >= addi) {
-                        count+= addi;
-                        arr.push_back(addi);
-                    } else addi--;
-                }
-                break;
+        } else {
+            if (k==1 || n==1) {
+                // cout << "No\n";
+            }
+            if (k>=2 && n%2==0) {
+                while(total != n) {
+                    arr.push_back(2);
+                    total+=2;
+                }         
+            } else if (k>2 && n%2 != 0 ) {
+                arr.push_back(3);
+                total +=3;
+                while(total != n) {
+                    arr.push_back(2);
+                    total+=2;
+                } 
+            }  else {
+                // cout << "No\n";
             }
         }
 
 
 
-
-        if (count == n) {
+        if (total == n)
+        {
             cout << "Yes\n";
             cout << arr.size() << endl;
-            for (auto j: arr) {
+            for (auto j : arr)
+            {
                 cout << j << " ";
             }
             cout << endl;
-        } else {
+        }
+        else
+        {
             cout << "No\n";
         }
-        
-    }  
+    }
     return 0;
 }
