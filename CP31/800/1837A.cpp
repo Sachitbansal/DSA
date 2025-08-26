@@ -13,30 +13,25 @@ int main() {
 
         int steps=0;
         vector<int> arr;
-        int count = 0;
-        int j = 0;
-        if (x % k != 0) {
-            steps=1;
-            arr.push_back(x);
-            count += x;
-        } else {
-            while (x - count > 0 ) {
-                // cout << "count "<< x - count - j << endl;
-                cout <<  j << endl;
-                if ((x - count - j) % k == 0) {
-                    // cout << "ran\n";
-                    // cout << (x - count - j) % k << endl;
-                    j++;
-                } else {
-                    steps++;
-                    arr.push_back(x - count - j);
-                    count += x - count - j;
-                }
-            }
+        int total=0;
+        int temp=x;
+        while (total!=x) {
+
+            if (temp % k != 0 && total + temp <= x) {
+                total += temp;
+                steps++;
+                arr.push_back(temp);
+            } else {
+                temp--;
+           }
         }
         cout << steps << endl;
-        for (auto j: arr) cout << j << " ";
-        cout << endl;
+        for (int j: arr) {
+            cout << j << " ";
+        } cout << endl;
+
+
+        
 
 
 
