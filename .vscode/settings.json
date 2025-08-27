@@ -60,6 +60,9 @@
     "*.py": "python",
     "iostream": "cpp",
     "ostream": "cpp",
-    "cmath": "cpp"
+    "cmath": "cpp",
+    "bitset": "cpp",
+    "algorithm": "cpp",
+    "format": "cpp"
   }
 }
