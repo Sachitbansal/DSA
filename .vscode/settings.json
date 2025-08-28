@@ -63,6 +63,8 @@
     "cmath": "cpp",
     "bitset": "cpp",
     "algorithm": "cpp",
-    "format": "cpp"
+    "format": "cpp",
+    "chrono": "cpp",
+    "span": "cpp"
   }
 }
