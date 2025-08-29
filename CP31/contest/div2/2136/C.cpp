@@ -43,9 +43,6 @@ int main()
         }
 
         // count the number of spaces between 2 same integers in the map count
-         
-
-
 
         for (int num : arr)
         {

@@ -14,47 +14,25 @@ int main()
         cin >> n;
 
         int arr[n];
-        map<int, int> count;
+        int countpos = 0;
+        int countneg = 0;
 
         for (int j = 0; j < n; j++)
         {
             cin >> arr[j];
-            count[arr[j]]++;
+        }
+        for (int j = 0; j < n; j++)
+        {
+            if (arr[j] == 1)  countpos++;
+            else countneg++;
         }
 
         int operations = 0;
-
-        if (count[1] == 0)
-        {
-            operations = count[-1];
-            cout << operations << endl;
-            continue;
+        while (countpos < countneg  || countneg % 2 != 0) {
+            countpos ++;
+            countneg--;
+            operations++;
         }
-        else if (count[-1] == 0 || count[-1] == count[1] && count[-1] != 1)
-        {
-            operations = 0;
-            cout << operations << endl;
-            continue;
-            // cout << "hua" << endl;
-        }
-        else if (count[-1] > count[1])
-        {
-            while(count[-1]%2!=0 || count[1]<count[-1]){
-                count[-1]--;
-                count[1]++;
-                operations++;
-            }
-
-        }
-        else if (count[-1] < count[1])
-        {
-            while(count[-1]%2!=0 || count[1]<count[-1]){
-                count[-1]++;
-                count[1]--;
-                operations++;
-            }
-        } else operations = 1;
-        
 
         cout << operations<< endl;
     }
