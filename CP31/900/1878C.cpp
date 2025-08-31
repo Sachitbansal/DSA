@@ -18,9 +18,6 @@ int main() {
         if (x >= sumfirst && x <= sumlast) cout << "Yes\n";
         else cout <<"No\n";
         
-
-  
-        
     }   
     return 0;
 }
