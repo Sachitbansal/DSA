@@ -9,19 +9,20 @@ vector<int> ans(map<int, int> counts, vector<int> arr)
     {
         if (hm.second % hm.first != 0)
         {
-            if (hm.second == 1 && hm.first != 1)
-                return {-1};
+
+            return {-1};
         }
-        if (hm.second % hm.first == 0)
-            num++;
 
         for (int j = 0; j < arr.size(); j++)
         {
-
             if (hm.first == arr[j])
             {
                 ans[j] = num;
                 hm.second--;
+                if (hm.second % hm.first == 0)
+                {
+                    num++;
+                }
             }
         }
     }
