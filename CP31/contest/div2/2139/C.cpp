@@ -8,64 +8,42 @@ int main()
 
     for (int i = 0; i < t; i++)
     {
-        int k, x;
+        long long k, x;
         cin >> k >> x;
 
-        int c = pow(2, k);
-        int v = pow(2, k);
-        bool doubled = false;
+        long long c = 1LL << k;
+        
+        long long total = 1LL << (k + 1);
         vector<int> ans;
-        if (x % 2 != 0 || c > x)
-        {
-            x *= 2;
-            doubled = true;
-        };
-        while (c != x)
+
+        while (x != c)
         {
             if (c < x)
             {
-                if (v % 2 == 0)
+                long long neww = 2 * x - total;
+                if (neww > x)
                 {
-                    c *= 2;
-                    v /= 2;
-                    ans.push_back(2);
-                }
-                else
-                {
-                    c /= 2;
-                    v *= 2;
-                    ans.push_back(1);
-                }
-            }
-            else if (c > x)
-            {
-                if (c % 2 == 0)
-                {
-                    c /= 2;
-                    v *= 2;
                     ans.push_back(1);
                 }
                 else
                 {
-                    c *= 2;
-                    v /= 2;
                     ans.push_back(2);
                 }
+                x = neww;
             }
             else
             {
-                if (doubled)
-                {
-                    ans.push_back(1);
-                }
-                cout << ans.size() << endl;
-                for (int x : ans)
-                {
-                    cout << x << " ";
-                }
-                cout << endl;
+                x *= 2;
+                ans.push_back(1);
             }
         }
+
+        cout << ans.size() << endl;
+        for (int z = ans.size() - 1; z >= 0; z--)
+        {
+            cout << ans[z] << " ";
+        }
+        cout << endl;
     }
     return 0;
 }
