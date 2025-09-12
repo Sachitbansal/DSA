@@ -19,7 +19,7 @@ int main()
                 count1++;
         }
         int ans = 0;
-        for (int j = n - 1; j > n - count1; j--)
+        for (int j = n - 1; j >= n - count1; j--)
         {
             // cout << arr[j]<<" "<<j<<endl;
             if (arr[j] == '0')
