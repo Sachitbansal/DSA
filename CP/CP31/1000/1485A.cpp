@@ -20,7 +20,7 @@ int main()
 
     while (t--)
     {
-
+fasfsdfsfea
         long long a, b;
         cin >> a >> b;
 
