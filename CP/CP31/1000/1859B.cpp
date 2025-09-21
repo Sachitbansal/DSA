@@ -1,68 +1,73 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long ans(int c, int d)
-{
-    long long total = 0LL;
-    while (c > 0)
-    {
-        c /= d;
-        total++;
-    }
-    return total;
-}
+using ll = long long;
 
 int main()
 {
 
-    int t;
+    ll t;
     cin >> t;
 
     while (t--)
     {
-        long long n, p;
-        cin >> n >> p;
+        ll n;
+        cin >> n;
+        vector<pair<ll, ll>> arr(n);
 
-        vector<pair<long long, long long>> arr(n);
-
-        for (long long j = 0LL; j < n; j++)
+        for (ll j = 0; j < n; j++)
         {
-            cin >> arr[j].first; // ai
-        }
-        for (long long j = 0LL; j < n; j++)
-        {
-            cin >> arr[j].second; // bi
+            ll num;
+            cin >> num;
+            vector<ll> vec(num);
+            for (ll k = 0; k < num; k++)
+            {
+                cin >> vec[k];
+            }
+            ll min1 = LLONG_MAX;
+            ll min2 = LLONG_MAX;
+            for (ll k = 0; k < num; k++)
+            {
+                if (vec[k] < min1)
+                {
+                    min2 = min1;
+                    min1 = vec[k];
+                }
+                else if (vec[k] < min2)
+                {
+                    min2 = vec[k];
+                }
+            }
+            arr[j] = {min1, min2};
         }
 
         sort(arr.begin(), arr.end(), [](auto &a, auto &b)
              { return a.second < b.second; });
 
-        long long cost = p;
-        long long total = 1LL;
-        long long current = 0LL;
+        ll min = LLONG_MAX;
+        ll beauty = 0;
 
-        while (total < n)
+        if (n > 1)
         {
-            if (arr[current].second < p)
+            for (auto &p : arr)
             {
-                for (long long j = 0; j < arr[current].first; j++)
-                {
-                    if (total < n)
-                    {
-                        total++;
-                        cost += arr[current].second;
-                    }
-                }
+                beauty += p.second;
+                if (min > p.first)
+                    min = p.first;
             }
-            else
-            {
-                cost += p;
-                total++;
-            }
-            current++;
-        }
+            // cout << min << endl;
 
-        cout << cost << endl;
+            auto p = arr[0];
+            // cout << p.first << " " << p.second << endl;
+            beauty -= p.second;
+            beauty += min;
+        }
+        else
+        {
+            auto &p = arr[0];
+            beauty = p.first;
+        }
+        cout << beauty << endl;
     }
 
     return 0;
