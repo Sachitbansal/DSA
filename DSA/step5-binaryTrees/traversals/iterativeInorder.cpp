@@ -16,7 +16,6 @@ vector<int> IterativeInorder(Node* root) {
 
     vector<int> ans;
 
-
     stack<Node*> st;
     Node* node = root;
     
