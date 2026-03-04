@@ -14,69 +14,41 @@ int main()
         cin >> n;
 
         vector<int> arr(n);
+        int correct = true;
         for (int j = 0; j < n; j++)
         {
             cin >> arr[j];
+            if (correct && arr[j] != 0) correct = false;
         }
 
-        vector<int> pos;
-        bool found = false;
-        for (int j = 0; j < n; j++)
-        {
-            if (arr[j] == 0)
-            {
-                if (!pos.empty())
-                {
-                    if (j - pos.back() == 1)
-                    {
-                        continue;
-                    }
-                    else
-                        pos.push_back(j);
-                }
-                else
-                    pos.push_back(j);
-            }
-        }
-
-        int sizee = pos.size();
-  
-
-        bool checked = false;
-        for (int j : arr)
-        {
-            if (j != 0)
-            {
-                checked = true;
-                break;
-            }
-        }
-        if (!checked)
-        {
+        if (correct) {
             cout << 0 << endl;
             continue;
         }
-        if (sizee == 0)
-        {
-            cout << 1 << endl;
+
+        int parts = 0;
+        int p1 = 0;
+        int p2 = 1;
+
+        if (arr[0] != 0) {
+            parts = 1;
+            p2 = 1;
         }
-        else if (sizee == 1)
-        {
-            if (pos[0] == 0)
-                cout << 1 << endl;
-            else
-                cout << 2 << endl;
+
+        int segments = 0;
+            
+        for (int i = 0; i < n; i++) {
+            if (arr[i] != 0 && (i == 0 || arr[i-1] == 0)) {
+                segments++;
+            }
         }
-        else if (pos[0] == 0 && arr[pos.back()] == 0)
-        {
-            cout << sizee - 1 << endl;
-        }
-        else if (pos[0] != 0 && pos[sizee] != 0)
-        {
-            cout << sizee + 1 << endl;
-        }
-        else
-            cout << sizee << endl;
+        
+        if (segments == 0) cout << 0 << endl;
+        else if (segments == 1) cout << 1 << endl;
+        else cout << 2 << endl;
+
+    
+
     }
 
     return 0;
