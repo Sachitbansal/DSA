@@ -1,9 +1,7 @@
 class Solution {
   public:
   
-    void check (vector<int>& arr, int k, int index,  bool &ans) {
-        
-        
+    void check (vector<int>& arr, int k, int index,  bool &ans) { 
         
         // take the val
         if (k == 0) {
